@@ -5,45 +5,54 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# User.destroy_all
-# puts "Creating Users"
-# User.create!(name: "Johan", email: "mipix@getairmail.com", password: "Frog123")
-# User.create!(name: "Carlos", email: "hasofic@getnada.com", password: "Frog123")
-# User.create!(name: "Chris", email: "rujyq@zetmail.com", password: "Frog123")
-# User.create!(name: "Nik", email: "miqifigyt@vomoto.com", password: "Frog123")
-# puts "Users created!"
+
+User.destroy_all
+Sauna.destroy_all
+
+
+puts "Creating Users"
+user_1 = User.create!(name: "Johan", email: "mipix@getairmail.com", password: "Frog123")
+user_2 = User.create!(name: "Carlos", email: "hasofic@getnada.com", password: "Frog123")
+user_3 = User.create!(name: "Chris", email: "rujyq@zetmail.com", password: "Frog123")
+user_4 = User.create!(name: "Nik", email: "miqifigyt@vomoto.com", password: "Frog123")
+puts "Users created!"
 
 puts "Creating Saunas"
 
-Sauna.create!(title: "Amazing Swedish Sauna",
+swedish = Sauna.new(title: "Amazing Swedish Sauna",
    address: "Stockholm, SE",
    price: "1000",
    capacity: 4,
    image_url: "https://unsplash.com/photos/a-0Qsar9rBg",
    description: "This is so hot!",
    sauna_type: "Swedish",
-   user_id: 13
+   user_id: user_1.id
   )
 
-  Sauna.create!(title: "Mediocre Finish Sauna",
+  swedish.save!
+
+  finnish =  Sauna.new(title: "Mediocre Finnish Sauna",
    address: "Oulu, FI",
    price: "800",
    capacity: 2,
    image_url: "https://unsplash.com/photos/a-0Qsar9rBg",
    description: "This is warm :(",
    sauna_type: "Finnish",
-   user_id: 14
+   user_id: user_2.id
   )
 
+  finnish.save!
 
-  Sauna.create!(title: "Turkish Sauna",
+  turkish = Sauna.new(title: "Turkish Sauna",
    address: "Istanbul, Turkey",
    price: "200",
    capacity: 6,
    image_url: "https://unsplash.com/photos/a-0Qsar9rBg",
    description: "Oriental sauna",
    sauna_type: "Turkish",
-   user_id: 15
+   user_id: user_3.id
   )
+
+  turkish.save!
 
 puts "Created Saunas"
