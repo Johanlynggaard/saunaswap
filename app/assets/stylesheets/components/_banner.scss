@@ -3,12 +3,17 @@
   background-size: cover;
   height: 70vh;
   display: flex;
-  text-align: center;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .banner .btn {
+  width: 200px;
+  align-self: center;
+}
+
+.banner a {
   width: 200px;
   align-self: center;
 }
