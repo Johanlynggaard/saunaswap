@@ -11,9 +11,9 @@ Sauna.destroy_all
 
 
 puts "Creating Users"
-user_1 = User.create!(name: "Johan", email: "mipix@getairmail.com", password: "Frog123")
-user_2 = User.create!(name: "Carlos", email: "hasofic@getnada.com", password: "Frog123")
-user_3 = User.create!(name: "Chris", email: "rujyq@zetmail.com", password: "Frog123")
+user_1 = User.create!(name: "Johan", email: "mipix@getairmail.com", password: "Frog123", has_saunas: true)
+user_2 = User.create!(name: "Carlos", email: "hasofic@getnada.com", password: "Frog123", has_saunas: true)
+user_3 = User.create!(name: "Chris", email: "rujyq@zetmail.com", password: "Frog123", has_saunas: true)
 user_4 = User.create!(name: "Nik", email: "miqifigyt@vomoto.com", password: "Frog123")
 puts "Users created!"
 
@@ -26,7 +26,7 @@ swedish = Sauna.new(title: "Amazing Swedish Sauna",
    image_url: "https://images.unsplash.com/photo-1617372607364-f55cb6fa0502?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1065&q=80",
    description: "This is so hot!",
    sauna_type: "Swedish",
-   user_id: user_1.id
+   user_id: user_1.id,
   )
 
   swedish.save!
@@ -38,7 +38,7 @@ swedish = Sauna.new(title: "Amazing Swedish Sauna",
    image_url: "https://images.unsplash.com/photo-1617372607364-f55cb6fa0502?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1065&q=80",
    description: "This is warm :(",
    sauna_type: "Finnish",
-   user_id: user_2.id
+   user_id: user_2.id,
   )
 
   finnish.save!
