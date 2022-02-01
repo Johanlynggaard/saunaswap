@@ -76,3 +76,6 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
+
+# Pundit
+gem 'pundit'
