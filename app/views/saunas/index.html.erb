@@ -3,7 +3,7 @@
   <div class="cards">
     <% @saunas.each do |sauna| %>
       <div class="card-trip">
-        <img src=<%= sauna.image_url %>/>
+        <img src='<%= sauna.photo.attached? ? cl_image_path(sauna.photo.key) : asset_path('sauna_placeholder.jpg') %>'/>
         <div class="card-trip-infos">
           <div>
           <h2><%= link_to sauna.title, sauna_path(sauna), :style => "text-decoration: none; color: inherit;" %></h2>
