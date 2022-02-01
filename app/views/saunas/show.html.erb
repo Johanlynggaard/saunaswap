@@ -1,5 +1,6 @@
 <div class="container mt-3">
   <h1> <%= @sauna.title %></h1>
+  <%= cl_image_tag @sauna.photo.key, crop: :fill %>
 </div>
 <div>
   <ul>
