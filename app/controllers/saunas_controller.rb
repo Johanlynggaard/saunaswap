@@ -24,7 +24,7 @@ class SaunasController < ApplicationController
   private
 
   def sauna_params
-    params.require(:sauna).permit(:title, :address, :price, :capacity, :image_url, :description, :sauna_type)
+    params.require(:sauna).permit(:title, :address, :price, :capacity, :photo, :description, :sauna_type)
   end
 
 end
