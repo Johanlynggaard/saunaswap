@@ -65,3 +65,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Devise
 gem 'devise'
+
+# # Jquery
+gem 'jquery-rails'
+
+# Bootstrap
+gem 'bootstrap', '~> 5.1.3'
+
+# Sprocket
+gem 'sprockets-rails', :require => 'sprockets/railtie'

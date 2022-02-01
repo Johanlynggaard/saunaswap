@@ -30,3 +30,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initUpdateNavbarOnScroll();
 });
+
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require bootstrap-sprockets
