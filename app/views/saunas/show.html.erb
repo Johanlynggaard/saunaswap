@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <h1> <%= @sauna.title %></h1>
-  <%= cl_image_tag @sauna.photo.key, crop: :fill %>
+  <img src='<%= @sauna.photo.attached? ? cl_image_path(@sauna.photo.key) : asset_path('sauna_placeholder.jpg') %>'/>
 </div>
 <div>
   <ul>
