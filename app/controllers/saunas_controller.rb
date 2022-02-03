@@ -1,19 +1,23 @@
 class SaunasController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_sauna, only: [:show, :edit, :update, :destroy]
+
   def index
-    @saunas = Sauna.all
+    @saunas = policy_scope(Sauna).order(created_at: :desc)
   end
 
   def show
-    @sauna = Sauna.find(params[:id])
   end
 
   def new
     @sauna = Sauna.new
+    authorize @sauna
   end
 
   def create
     @sauna = Sauna.new(sauna_params)
     @sauna.user = current_user
+    authorize @sauna
     if @sauna.save
       redirect_to sauna_path(@sauna)
     else
@@ -27,4 +31,8 @@ class SaunasController < ApplicationController
     params.require(:sauna).permit(:title, :address, :price, :capacity, :photo, :description, :sauna_type)
   end
 
+  def set_sauna
+    @sauna = Sauna.find(params[:id])
+    authorize @sauna
+  end
 end
