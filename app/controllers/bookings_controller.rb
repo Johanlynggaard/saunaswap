@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_sauna, only: [ :new, :create ]
+
   def index
     # @bookings = current_user.bookings
     @bookings = policy_scope(Booking).order(created_at: :desc)
@@ -6,13 +8,12 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def new
-    @sauna = Sauna.find(params[:sauna_id])
     @booking = Booking.new
     authorize @booking
-
   end
 
   def create
@@ -20,7 +21,6 @@ class BookingsController < ApplicationController
 
 
     @booking.user = current_user
-    @sauna = Sauna.find(params[:sauna_id])
 
     @booking.sauna = @sauna
     authorize @booking
@@ -35,5 +35,9 @@ class BookingsController < ApplicationController
   private
   def booking_params
     params[:booking].permit(:start_date, :end_date)
+  end
+
+  def set_sauna
+    @sauna = Sauna.find(params[:sauna_id])
   end
 end
