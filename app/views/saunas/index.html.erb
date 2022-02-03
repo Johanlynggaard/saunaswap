@@ -2,16 +2,19 @@
 <div class="container mt-3">
   <div class="cards">
     <% @saunas.each do |sauna| %>
+      <% if policy(sauna).index? %>
       <div class="card-trip">
+        <%= link_to '', sauna_path(sauna), class: 'card-link'  %>
         <img src='<%= sauna.photo.attached? ? cl_image_path(sauna.photo.key) : asset_path('sauna_placeholder.jpg') %>'/>
-        <div class="card-trip-infos">
-          <div>
-          <h2><%= link_to sauna.title, sauna_path(sauna), :style => "text-decoration: none; color: inherit;" %></h2>
-          <p><%= sauna.description %></p>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= link_to sauna.title, sauna_path(sauna), :style => "text-decoration: none; color: inherit;" %></h2>
+              <p><%= sauna.description %></p>
+            </div>
+            <h2 class="card-trip-pricing"> <%= sauna.price %> DOGE</h2>
           </div>
-          <h2 class="card-trip-pricing"> <%= sauna.price %> DOGE</h2>
-        </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>

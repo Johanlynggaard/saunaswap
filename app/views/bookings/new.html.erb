@@ -1,0 +1,14 @@
+<div>
+    <header>
+        <h2> Booking form for: <%= @sauna.title %> </h2>
+    </header>
+</div>
+
+<div class="booking-container">
+  <%= simple_form_for [@sauna , @booking] do |f| %>
+    <%= f.input :start_date, as: :string, placeholder: '01/01/2022' %>
+    <%= f.input :end_date, as: :string, placeholder: '03/01/2022' %>
+    <%= f.submit class: 'btn btn-primary mb-3' %>
+  <% end %>
+  <%= link_to 'go back to sauna page', saunas_path %>
+</div>
