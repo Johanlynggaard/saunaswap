@@ -1,0 +1,12 @@
+<% if @user.id == current_user.id %>
+  <div class="container mt-3">
+    <h1>Your Profile</h1>
+
+    <%= @user.name %>
+    <%= @user.email %>
+  </div>
+<% else %>
+  <div class="container mt-3">
+    <h1>Not your profile dude</h1>
+    <%controller.redirect_to root_path %>
+<% end %>
