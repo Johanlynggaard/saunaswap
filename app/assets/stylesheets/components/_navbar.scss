@@ -10,3 +10,13 @@
 .navbar-lewagon .navbar-brand img {
   width: 100px;
 }
+
+.nav-item {
+  display: table;
+}
+
+.nav-item .nav-link {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
