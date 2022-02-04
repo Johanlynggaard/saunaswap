@@ -28,7 +28,8 @@ class SaunasController < ApplicationController
   private
 
   def sauna_params
-    params.require(:sauna).permit(:title, :address, :price, :capacity, :photo, :description, :sauna_type)
+    # We need to add photos: [] to strong params list once upload images for is ready
+    params.require(:sauna).permit(:title, :address, :price, :capacity, photos: [],  :description, :sauna_type)
   end
 
   def set_sauna
