@@ -1,0 +1,19 @@
+<% if @user.id == current_user.id %>
+  <div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h1>Your Profile</h1>
+        <ul class="list-unstyled">
+          <li><%= @user.name %></li>
+          <li><%= @user.address %></li>
+          <li><%= @user.phone_number %></li>
+        </ul>
+      <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-primary" %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <%# <div class="container mt-3">
+    <h1>Not your profile dude</h1> %>
+    <%controller.redirect_to root_path %>
+<% end %>

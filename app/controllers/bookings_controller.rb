@@ -18,6 +18,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+
+
     @booking.user = current_user
     @booking.sauna = @sauna
     authorize @booking
@@ -32,6 +34,10 @@ class BookingsController < ApplicationController
   private
   def booking_params
     params[:booking].permit(:start_date, :end_date, :sauna_id)
+  end
+
+  def set_sauna
+    @sauna = Sauna.find(params[:sauna_id])
   end
 
   def set_sauna
