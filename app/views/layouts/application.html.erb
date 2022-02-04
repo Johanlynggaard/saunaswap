@@ -17,11 +17,11 @@
       <div id="content"> <!-- the id here is just to remind you -->
         <%= render "components/navbar" %>
         <%= yield %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       </div>
       <div id="footer"> <!-- the id here is just to remind you -->
         <%= render "components/footer" %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
       </div>
     </div>
   </body>
