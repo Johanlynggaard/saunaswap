@@ -21,8 +21,8 @@
     <div class="carousel-inner">
       <%# Code to loop over user saved photos %>
       <% @sauna.photos.each_with_index do |photo, i| %>
-        <div class="carousel-item <%= 'active' if i == 0 %>">
-          <%= cl_image_tag photo.key, class: 'img-fluid', crop: :fill %>
+        <div class="carousel-item text-center <%= 'active' if i == 0 %>">
+          <%= cl_image_tag photo.key, class: 'img-fluid', crop: :fill, style:"height:500px" %>
         </div>
       <% end %>
 
@@ -47,9 +47,8 @@
     <div class="col-md-4 mx-auto">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title text-center"><strong>From £<%= @sauna.price %></strong> / person</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <%# <a href="#" class="btn btn-primary ">Book Now</a> %>
+          <h5 class="card-title"><strong>From <%= @sauna.price %> DOGE</strong> / person</h5>
+          <p class="card-text"><strong>Capacity: </strong><%= @sauna.capacity %> <%= @sauna.capacity == 1 ? "person" : "people" %></p>
           <div class="text-center">
             <%= link_to "Book Now", new_sauna_booking_path(@sauna), class: "btn btn-primary" %>
           </div>
@@ -59,9 +58,16 @@
   </div>
 
   <%# review in next row div %>
-  <div class="row">
+    <h4 class="col-12">Reviews</h4>
+    <hr>
+  <div class="cards">
     <% @sauna.reviews.each do |review| %>
-      <p><%= review.content %></p>
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title"><% review.rating.to_i.times do  %><span>⭐</span><% end %></h5>
+          <p class="card-text"><%= review.content %></p>
+        </div>
+      </div>
     <% end %>
   </div>
 
