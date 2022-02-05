@@ -2,16 +2,74 @@
   <div class="container mt-3">
     <div class="row justify-content-center">
       <div class="col-6">
-        <h1>Your Profile</h1>
-        <ul class="list-unstyled">
-          <li><%= @user.name %></li>
-          <li><%= @user.address %></li>
-          <li><%= @user.phone_number %></li>
-        </ul>
-      <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-primary" %>
+        <h1>Your Dashboard</h1>
+        <h2>Your Profile</h2>
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><%= @user.name %></li>
+              <li><%= @user.address %></li>
+              <li><%= @user.phone_number %></li>
+            </ul>
+            <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-primary" %>
+          </div>
+        </div>
+    </div>
+
+      <div class="container mt-3">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <h2>Your hosted Saunas</h2>
+            <% if @user.has_saunas %>
+              <% @user.saunas.each do |sauna| %>
+                <div class="card">
+                  <div class="card-body">
+                    <ul class="list-unstyled">
+                      <li><strong><%= sauna.title %></strong></li>
+                      <% if sauna.bookings.empty? %>
+                        <p>No bookings yet! </p>
+                      <% else %>
+                        <% sauna.bookings.each do |booking| %>
+                          <p>Booked from <%= booking.start_date %> until <%= booking.end_date %> </p>
+                        <% end %>
+                        <%= link_to "Go to sauna", sauna_path(sauna), class: "btn btn-outline-primary" %>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <p>You have no saunas</p>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+
+    <div class="container mt-3">
+      <div class="row justify-content-center mt-3">
+        <div class="col-6">
+          <h2>Your Sauna trips</h2>
+          <% if @user.bookings.empty? %>
+            <p>No trips booked yet. Time to make it sweat!</p>
+            <%= link_to "Book now", saunas_path, class: "btn btn-outline-primary" %>
+          <% else %>
+            <ul class="list-unstyled">
+            <% @user.bookings.each do |booking| %>
+              <% if booking.user.name == current_user.name%>
+                <div class="card mt-3">
+                  <div class="card-body">
+                    <li> <strong> Sauna: </strong> <%= booking.sauna.title %> <strong> from: </strong> <%= booking.start_date%> <strong> until: </strong> <%= booking.end_date %></li>
+                    <%= link_to "Create Review", "#", class: "btn btn-outline-primary mt-3" %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
 <% else %>
   <%# <div class="container mt-3">
     <h1>Not your profile dude</h1> %>

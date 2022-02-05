@@ -1,11 +1,17 @@
-
 <div class="container mt-3">
+
+  <% flash.each do |type, msg| %>
+    <div class="flash">
+      <%= msg %>
+    </div>
+  <% end %>
+
   <div class="cards">
     <% @saunas.each do |sauna| %>
       <% if policy(sauna).index? %>
       <div class="card-trip">
         <%= link_to '', sauna_path(sauna), class: 'card-link'  %>
-        <img src='<%= sauna.photos.attached? ? cl_image_path(sauna.photos[0].key) : asset_path('sauna_placeholder.jpg') %>'/>
+        <img src='<%= sauna.photos.attached? ? cl_image_path(sauna.photos[0].key) : asset_path(sauna.image_url) %>'/>
           <div class="card-trip-infos">
             <div>
               <h2><%= link_to sauna.title, sauna_path(sauna), :style => "text-decoration: none; color: inherit;" %></h2>
