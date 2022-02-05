@@ -18,14 +18,12 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
-
     @booking.user = current_user
     @booking.sauna = @sauna
     authorize @booking
 
     if @booking.save
-      redirect_to saunas_path
+      redirect_to saunas_path, notice: "Your booking has been completed 🎉"
     else
       render :new
     end
@@ -40,7 +38,4 @@ class BookingsController < ApplicationController
     @sauna = Sauna.find(params[:sauna_id])
   end
 
-  def set_sauna
-    @sauna = Sauna.find(params[:sauna_id])
-  end
 end
