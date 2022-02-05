@@ -32,6 +32,7 @@
                         <% sauna.bookings.each do |booking| %>
                           <p>Booked from <%= booking.start_date %> until <%= booking.end_date %> </p>
                         <% end %>
+                        <%= link_to "Go to sauna", sauna_path(sauna), class: "btn btn-outline-primary" %>
                       <% end %>
                     </ul>
                   </div>
