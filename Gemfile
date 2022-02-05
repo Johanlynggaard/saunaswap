@@ -79,3 +79,6 @@ gem 'cloudinary', '~> 1.16.0'
 
 # Pundit
 gem 'pundit'
+
+# Mapbox
+gem 'geocoder'
