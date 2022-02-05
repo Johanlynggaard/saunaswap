@@ -4,6 +4,12 @@ class SaunasController < ApplicationController
 
   def index
     @saunas = policy_scope(Sauna).order(created_at: :desc)
+    @markers = @saunas.geocoded.map do |sauna|
+      {
+        lat: sauna.latitude,
+        lng: sauna.longitude
+      }
+    end
   end
 
   def show
