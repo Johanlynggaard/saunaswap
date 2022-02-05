@@ -1,5 +1,9 @@
-<%= simple_form_for [@sauna, @review] do |f| %>
-  <%= f.input :rating, collection: 1..5 %>
-  <%= f.input :content %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<div class="booking-container">
+
+  <%= simple_form_for [@sauna, @review] do |f| %>
+    <%= f.input :rating, collection: 1..5 %>
+    <%= f.input :content %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+
+</div>
