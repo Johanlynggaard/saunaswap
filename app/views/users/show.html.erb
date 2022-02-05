@@ -62,7 +62,7 @@
                   <div class="card-body">
                     <li> <strong> <%= booking.sauna.title %> </strong> </li>
                     <li> Booked from <%= booking.start_date%> until: <%= booking.end_date %> </li>
-                    <%= link_to "Create Review", "#", class: "btn btn-outline-primary mt-3" %>
+                    <%= link_to "Create Review", new_sauna_review_path(booking.sauna), class: "btn btn-outline-primary mt-3" %>
                   </div>
                 </div>
               <% end %>
