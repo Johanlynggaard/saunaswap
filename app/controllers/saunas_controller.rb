@@ -36,6 +36,11 @@ class SaunasController < ApplicationController
     end
   end
 
+  def destroy
+    @sauna.destroy
+    redirect_to saunas_path
+  end
+
   private
 
   def sauna_params
