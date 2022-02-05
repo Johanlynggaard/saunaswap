@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :saunas do
     resources :bookings
+    resources :reviews, only: [:new, :create]
   end
 end
