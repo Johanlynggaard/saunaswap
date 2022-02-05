@@ -1,0 +1,44 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-6">
+
+      <h2>Edit sauna listing</h2>
+
+      <%= simple_form_for(@sauna) do |f| %>
+
+
+        <div class="form-group">
+          <%= f.label :title, label: "Enter your Sauna title:" %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :address, label: "Enter the address:" %>
+          <%= f.text_field :address, class: 'form-control' %>
+        </div>
+          <div class="form-group">
+          <%= f.label :description, label: "Enter a cool description:" %>
+          <%= f.text_field :description, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :price, label: "Enter the price" %>
+          <%= f.text_field :price, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :capacity, label: "Enter the capacity" %>
+          <%= f.text_field :capacity, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :sauna_type, label: "What's the sauna type" %>
+          <%= f.text_field :sauna_type, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Steamy sauna images" %>
+        </div>
+        <div class="mt-3">
+          <%= f.submit class: 'btn btn-outline-primary' %>
+          <%= link_to 'Cancel', saunas_path, class: 'btn btn-outline-warning' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

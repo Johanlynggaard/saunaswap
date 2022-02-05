@@ -25,6 +25,22 @@ class SaunasController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @sauna.update(sauna_params)
+      redirect_to sauna_path(@sauna)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @sauna.destroy
+    redirect_to saunas_path
+  end
+
   private
 
   def sauna_params
