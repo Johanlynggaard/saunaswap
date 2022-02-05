@@ -57,4 +57,11 @@
       </div>
     </div>
   </div>
+
+  <%# review in next row div %>
+  <div class="row">
+    <% @sauna.reviews.each do |review| %>
+      <p><%= review.content %></p>
+    <% end %>
+  </div>
 </div>
