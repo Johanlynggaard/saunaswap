@@ -1,5 +1,22 @@
-<%= simple_form_for [@sauna, @review] do |f| %>
-  <%= f.input :rating, collection: 1..5 %>
-  <%= f.input :content %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-6">
+
+      <h2>Add a new review</h2>
+
+      <%= simple_form_for [@sauna, @review] do |f| %>
+        <div class="form-group">
+          <%= f.input :rating, collection: 1..5, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.input :content, class: 'form-control' %>
+        </div>
+        <div class="mt-3">
+          <%= f.submit class: 'btn btn-outline-primary' %>
+          <%= link_to 'Cancel', saunas_path, class: 'btn btn-outline-warning' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
