@@ -41,8 +41,3 @@ document.addEventListener('turbolinks:load', () => {
 //= require popper
 //= require bootstrap
 //= require bootstrap-sprockets
-
-
-
-//= import custom css
-require("packs/init_flatpickr")
