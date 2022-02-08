@@ -1,11 +1,13 @@
 <div class="card" style="width: 18rem;">
-  <img src='<%= sauna.photos.attached? ? cl_image_path(sauna.photos[0].key) : asset_path(sauna.image_url) %>'
-       class="card-img-top img-fluid"
-       style="height:200px;object-fit: contain"/>
+  <%= link_to '', sauna_path(sauna), class: 'card-link'  %>
+    <img src='<%= sauna.photos.attached? ? cl_image_path(sauna.photos[0].key) : asset_path(sauna.image_url) %>'
+        class="card-img-top img-fluid"
+        style="height:200px;object-fit: contain"/>
+  </a>
   <div class="card-body">
     <h5 class="card-title"><%= sauna.title %></h5>
     <h6><%= sauna.address %></h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Book Now</a>
+    <p id="map-pin-description" class="card-text"><%= sauna.description %></p>
+    <%= link_to "Book Now", new_sauna_booking_path(sauna), class: "btn btn-primary" %>
   </div>
 </div>
