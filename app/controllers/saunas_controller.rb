@@ -7,7 +7,8 @@ class SaunasController < ApplicationController
     @markers = @saunas.geocoded.map do |sauna|
       {
         lat: sauna.latitude,
-        lng: sauna.longitude
+        lng: sauna.longitude,
+        info_window: render_to_string(partial: "/saunas/map_pin_box", locals: { sauna: sauna })
       }
     end
   end
