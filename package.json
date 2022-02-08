@@ -8,6 +8,7 @@
     "@rails/webpacker": "5.4.3",
     "bootstrap": "4.6",
     "jquery": "^3.6.0",
+    "mapbox-gl": "^2.7.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
