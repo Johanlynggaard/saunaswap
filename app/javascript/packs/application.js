@@ -18,6 +18,8 @@ ActiveStorage.start()
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+//= import flatpickr
+import { initFlatpickr } from "../plugins/flatpickr";
 // External imports
 import "bootstrap";
 
@@ -31,6 +33,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initUpdateNavbarOnScroll();
+  initFlatpickr();
   initMapbox();
 });
 
@@ -38,3 +41,8 @@ document.addEventListener('turbolinks:load', () => {
 //= require popper
 //= require bootstrap
 //= require bootstrap-sprockets
+
+
+
+//= import custom css
+require("packs/init_flatpickr")
