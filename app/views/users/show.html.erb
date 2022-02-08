@@ -30,9 +30,20 @@
                       <% if sauna.bookings.empty? %>
                         <p>No bookings yet! </p>
                       <% else %>
+
+
                         <% sauna.bookings.each do |booking| %>
                           <p>Booked from <%= booking.start_date %> until <%= booking.end_date %> </p>
+                          <% if booking.status != "accepted"%>
+                            <p> Booking has not been accepted, would you like to:</p>
+                            <%= link_to "accept/decline booking", edit_sauna_booking_path(booking.sauna_id, booking.id) %>
+                            <%elsif booking.status == "accepted" %>
+                            <p> Booking has been accepted </p>
+
+                          <% end %>
                         <% end %>
+
+
                         <%= link_to "Go to sauna", sauna_path(sauna), class: "btn btn-outline-primary" %>
                       <% end %>
                     </ul>

@@ -1,0 +1,16 @@
+<%= simple_form_for [@sauna , @booking] do |f| %>
+  <%= f.label :status %>
+  <%= f.text_area :status%>
+  <%= f.submit %>
+<% end %>
+
+
+
+  <%= simple_form_for [@sauna, @booking] do |fa| %>
+      <%= fa.hidden_field :status, :value => 'accepted' %>
+      <%= fa.submit "Approve", class: "btn btn-large btn-success" %>
+    <% end %>
+    <%= form_for [@sauna, @booking] do |fr| %>
+      <%= fr.hidden_field :status, :value => 'rejected' %>
+      <%= fr.submit "Reject", class: "btn btn-large btn-danger" %>
+    <% end %>
