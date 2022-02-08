@@ -71,7 +71,7 @@
     <% end %>
   </div>
 
-  <% if current_user.id == @sauna.user_id %>
+  <% if current_user && current_user.id == @sauna.user_id %>
     <%= link_to 'Edit listing', edit_sauna_path %>
     <%= link_to 'Delete listing', sauna_path(@sauna), method: :delete, :class => "delete"%>
   <% end %>
