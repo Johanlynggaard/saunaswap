@@ -4,6 +4,13 @@ class SaunasController < ApplicationController
 
   def index
     @saunas = policy_scope(Sauna).order(created_at: :desc)
+    @query = params[:query]
+    if @query.present?
+      @query.slice!("sauna")
+      @saunas = Sauna.search_by_title_address_description_sauna_type(@query)
+    else
+      @saunas = Sauna.all
+    end
     @markers = @saunas.geocoded.map do |sauna|
       {
         lat: sauna.latitude,
