@@ -15,6 +15,14 @@ class Sauna < ApplicationRecord
   validates :description, presence: true
   validates :sauna_type, presence: true
 
+  include PgSearch::Model
+  pg_search_scope :search_by_title_address_description_sauna_type,
+    against: [ :title, :address, :description, :sauna_type ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }
