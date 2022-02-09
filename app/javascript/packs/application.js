@@ -18,17 +18,23 @@ ActiveStorage.start()
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+//= import flatpickr
+import { initFlatpickr } from "../plugins/flatpickr";
 // External imports
 import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+// for map
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initUpdateNavbarOnScroll();
+  initFlatpickr();
+  initMapbox();
 });
 
 //= require jquery3

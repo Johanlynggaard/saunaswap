@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     authorize @booking
-    redirect_to saunas_path
+    redirect_to profile_path, notice: "Booking updated"
   end
 
   private

@@ -8,6 +8,7 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import 'flatpickr/dist/flatpickr';
 
 // Your CSS partials
 @import "components/index";
@@ -20,3 +21,4 @@
 @import "components/alert";
 @import "components/notice";
 @import "components/flash";
+@import "components/approval";

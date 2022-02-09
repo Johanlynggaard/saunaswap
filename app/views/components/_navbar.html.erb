@@ -22,7 +22,7 @@
               <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/282/frog_1f438.png" class="avatar dropdown-toggle">
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Your dashboard", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Your dashboard", profile_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
