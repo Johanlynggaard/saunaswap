@@ -8,15 +8,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+  <%= render "components/searchForm"  %>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "List your sauna", new_sauna_path, class: "nav-link" %>
+            <%= link_to "List your sauna", new_sauna_path, class: "nav-link", id: "list-sauna-text" %>
           </li>
-          <li class="nav-item">
+          <%# Better to leave out until we have the functionality  %>
+          <%# <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+          <%# </li> %>
           <li class="nav-item dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/282/frog_1f438.png" class="avatar dropdown-toggle">
