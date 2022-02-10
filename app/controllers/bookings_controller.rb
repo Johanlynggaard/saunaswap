@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.sauna = @sauna
     authorize @booking
-
+    # raise
     if @booking.save
       redirect_to saunas_path, notice: "Your booking has been completed 🎉"
     else

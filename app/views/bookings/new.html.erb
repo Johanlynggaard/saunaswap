@@ -1,20 +1,12 @@
 <div class="container mt-3">
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-9">
       <div>
           <header>
               <h2> Booking form for: <%= @sauna.title %> </h2>
           </header>
       </div>
-
-      <div id="sauna-booking-dates" class="booking-container" data-unavailable="<%= @sauna.unavailable_dates.to_json %>">
-        <%= simple_form_for [@sauna , @booking] do |f| %>
-          <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
-          <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
-          <%= f.submit class: 'btn btn-primary mb-3' %>
-        <% end %>
-        <%= link_to 'Back to Sauna page', saunas_path, class: 'btn btn-warning' %>
-      </div>
+      <%= render "bookings/bookingForm" %>
     </div>
   </div>
 </div>
