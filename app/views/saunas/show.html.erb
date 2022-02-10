@@ -49,9 +49,11 @@
         <div class="card-body">
           <h5 class="card-title"><strong>From <%= @sauna.price %> DOGE</strong> / person</h5>
           <p class="card-text"><strong>Capacity: </strong><%= @sauna.capacity %> <%= @sauna.capacity == 1 ? "person" : "people" %></p>
-          <div class="text-center">
-            <%= link_to "Book Now", new_sauna_booking_path(@sauna), class: "btn btn-primary" %>
-          </div>
+          <%# <div class="text-center"> %>
+            <%# <%= link_to "Book Now", new_sauna_booking_path(@sauna), class: "btn btn-primary" %>
+          <%# </div> %>
+          <h5 class="card-title">Book now!</h5>
+          <%= render "bookings/bookingForm" %>
         </div>
       </div>
     </div>
