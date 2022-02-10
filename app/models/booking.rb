@@ -4,6 +4,11 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
+
+
+  validates :status, inclusion: { in: %w(accepted rejected),
+    message: "%{value} is not a valid status" }
+
   validate :end_date_after_start_date
 
   private

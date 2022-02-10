@@ -1,0 +1,16 @@
+<div class="approval-container">
+  <div class="info-box">
+    <p><%= @booking.user.name %> has booked "<%= @booking.sauna.title %>".</p>
+    <p>Do you wish to confirm? </p>
+  </div>
+  <div class="booking-btn-wrapper">
+    <%= simple_form_for [@sauna, @booking] do |fa| %>
+        <%= fa.hidden_field :status, :value => 'accepted' %>
+        <%= fa.submit "Approve", class: "btn btn-large btn-success" %>
+      <% end %>
+      <%= form_for [@sauna, @booking] do |fr| %>
+        <%= fr.hidden_field :status, :value => 'rejected' %>
+        <%= fr.submit "Reject", class: "btn btn-large btn-danger" %>
+      <% end %>
+  </div>
+<div>
