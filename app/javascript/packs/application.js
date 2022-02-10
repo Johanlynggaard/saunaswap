@@ -29,9 +29,16 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 // for map
 import { initMapbox } from '../plugins/init_mapbox';
 
+
+import { desc } from '../components/sortable';
+import { asc } from '../components/sortable';
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  asc();
+  desc();
   initUpdateNavbarOnScroll();
   initFlatpickr();
   initMapbox();
