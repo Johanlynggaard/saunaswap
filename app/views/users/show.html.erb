@@ -32,11 +32,13 @@
                       <% else %>
                         <% sauna.bookings.each do |booking| %>
                           <p>Booked from <%= booking.start_date %> until <%= booking.end_date %> </p>
-                          <% if booking.status != "accepted"%>
-                            <p> Booking has not been accepted, would you like to:</p>
-                            <%= link_to "Accept/Decline Booking", edit_sauna_booking_path(booking.sauna_id, booking.id), class: "btn btn-outline-primary" %>
-                            <%elsif booking.status == "accepted" %>
-                            <p> Booking has been accepted </p>
+                            <% if booking.status == "accepted" %>
+                              <p> Booking has been accepted </p>
+                            <% elsif booking.status == "rejected" %>
+                              <p> You have rejected this booking </p>
+                            <% else booking.status != "accepted"%>
+                              <p> Booking has not been accepted, would you like to:</p>
+                              <%= link_to "Accept/Decline Booking", edit_sauna_booking_path(booking.sauna_id, booking.id), class: "btn btn-outline-primary" %>
                           <% end %>
                         <% end %>
                         <%= link_to "Go to sauna", sauna_path(sauna), class: "btn btn-outline-primary" %>
@@ -68,6 +70,18 @@
                   <div class="card-body">
                     <li> <strong> <%= booking.sauna.title %> </strong> </li>
                     <li> Booked from <%= booking.start_date%> until: <%= booking.end_date %> </li>
+
+                      <div class="status-wrapper">
+                        <% if booking.status == "accepted" %>
+                          <p class="accepted">Your booking has been confirmed by the host</p>
+                          <% elsif booking.status == 'rejected' %>
+                          <p class="not-accepted"><strong> Your booking has been rejected by the host </strong></p>
+                          <% else %>
+                          <p class="not-accepted"> Your booking is pending confirmation from the host</p>
+                        <% end %>
+
+                      </div>
+                      <div>
                     <%= link_to "Create Review", new_sauna_review_path(booking.sauna), class: "btn btn-outline-primary mt-3" %>
                   </div>
                 </div>
