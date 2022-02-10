@@ -6,6 +6,7 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true
 
 
+
   # validates :status, inclusion: { in: %w(accepted rejected nil),
   #   message: "%{value} is not a valid status" }
 
