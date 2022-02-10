@@ -1,0 +1,12 @@
+  <%= form_tag saunas_path, method: :get do %>
+    <div class="input-group">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find your dream sauna!"
+      %>
+      <div class="input-group-btn">
+        <%= submit_tag "Search", class: "btn btn-outline-secondary" %>
+      </div>
+    </div>
+  <% end %>

@@ -82,3 +82,6 @@ gem 'pundit'
 
 # Mapbox
 gem 'geocoder'
+
+# Gemfile
+gem 'pg_search', '~> 2.3.0'
