@@ -23,6 +23,9 @@ class SaunasController < ApplicationController
   end
 
   def show
+    # @booking = @sauna.bookings.new
+    @booking = Booking.new
+    authorize @booking
   end
 
   def new

@@ -10,11 +10,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.sauna = @sauna
+    @review.sauna_id = @sauna.id
     authorize @review
 
     if @review.save
-      redirect_to user_path(current_user)
+      redirect_to profile_path
     else
       render :new
     end
