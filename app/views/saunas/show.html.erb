@@ -75,7 +75,7 @@
     <% @sauna.reviews.each do |review| %>
       <div class="card rounded shadow-sm p-3 mb-3">
         <div class="card-body">
-          <h5 class="card-title"><% review.rating.to_i.times do  %><span><%= icon("fas", "star") %></span><% end %></h5>
+          <h5 class="card-title"><% review.rating.to_i.times do  %><span><%= icon("fas", "star", id: "rating-stars") %></span><% end %></h5>
           <p class="card-text"><%= review.content %></p>
         </div>
       </div>
