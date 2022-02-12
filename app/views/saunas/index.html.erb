@@ -4,7 +4,7 @@
   </div>
 <% end %>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="row asc-btn">
       <button type="button" class="price-sort btn btn-primary btn-lg col-6" id="ascending">Asc. price</button>
       <button type="button" class="price-sort btn btn-primary btn-lg col-6" id="descending">Desc. price</button>
@@ -28,7 +28,7 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-7">
     <div id="map"
       style="width: 100%; height: 85vh;"
       data-markers="<%= @markers.to_json %>"
