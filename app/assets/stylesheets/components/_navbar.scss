@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -26,5 +26,5 @@
 .dropdown-toggle {
   border-color: $orange;
   background-color: $orange;
-  color: white;
+  color: $white;
 }
