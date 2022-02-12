@@ -15,8 +15,16 @@
   display: table;
 }
 
-.nav-item .nav-link {
+#list-sauna-text {
   text-align: center;
   display: table-cell;
   vertical-align: middle;
+  color: $orange;
+  font-weight: 600;
+}
+
+.dropdown-toggle {
+  border-color: $orange;
+  background-color: $orange;
+  color: white;
 }

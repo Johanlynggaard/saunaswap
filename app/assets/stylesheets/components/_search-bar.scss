@@ -1,0 +1,21 @@
+.search-form {
+  max-width: 571px;
+}
+
+#search-bar {
+  border: 2px solid $orange;
+  box-sizing: border-box;
+  border-radius: 45px;
+  width: 100%;
+}
+
+#search-field {
+  border: none;
+  border-radius: 45px;
+  text-align: center;
+}
+
+#search-btn {
+  border: none;
+  color: $orange;
+}
