@@ -55,7 +55,7 @@
       <div class="card rounded shadow-sm p-3 mb-5">
         <div class="card-body rounded">
           <h5 class="card-title"><strong><%= @sauna.price %> DOGE</strong> / day</h5>
-          <span class="card-text mb-3"><strong>Rating: <%= @sauna.reviews.average(:rating) %></strong><%= icon("fas", "star", class: "ml-1") %>
+          <span class="card-text mb-3"><strong>Rating: <%= @sauna.reviews.average(:rating).to_f.round(1) %></strong><%= icon("fas", "star", class: "ml-1") %>
           <%# <p class="card-text"><strong>Capacity: </strong><%= @sauna.capacity <%= @sauna.capacity == 1 ? "person" : "people"</p> %>
 
           <%# <div class="text-center"> %>

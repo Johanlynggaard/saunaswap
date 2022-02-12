@@ -19,7 +19,7 @@
           <div class="card-trip-infos">
             <div>
               <h2><%= link_to sauna.title, sauna_path(sauna), :style => "text-decoration: none; color: inherit;" %></h2>
-              <p><strong><%= sauna.reviews.average(:rating) %></strong><%= icon("fas", "star", class: "ml-1") %> <%= pluralize(sauna.reviews.count, 'review') %> </p>
+              <p><strong><%= sauna.reviews.average(:rating).to_f.round(1) %></strong><%= icon("fas", "star", class: "ml-1") %> <%= pluralize(sauna.reviews.count, 'review') %> </p>
               <p><%= sauna.description %></p>
             </div>
           </div>
