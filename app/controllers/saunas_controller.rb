@@ -18,7 +18,7 @@ class SaunasController < ApplicationController
         lat: sauna.latitude,
         lng: sauna.longitude,
         info_window: render_to_string(partial: "/saunas/map_pin_box", locals: { sauna: sauna }),
-        image_url: "https://www.iconsdb.com/icons/preview/orange/pin-8-xxl.png"
+        image_url: helpers.asset_path("marker-48")
       }
     end
   end
