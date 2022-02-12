@@ -8,12 +8,12 @@
   color: $white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.card-trip:hover{
+.card-trip:hover {
   transform: scale(1.05);
 }
 
@@ -30,9 +30,9 @@
   display: flex;
   overflow: hidden;
   background: $white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   position: relative;
-  transition: .2s;
+  transition: 0.2s;
   height: 200px;
   border-radius: 8px;
   contain: content;
@@ -55,14 +55,13 @@
 
 .card-trip p {
   font-size: 12px;
-  opacity: .7;
+  opacity: 0.7;
   margin: 0;
 }
 
 .card-trip img {
   margin-left: 8px;
 }
-
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -97,7 +96,6 @@
   left: 0;
   width: 100%;
 }
-
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -142,15 +140,15 @@
 
 .price-sort:hover {
   color: white;
-  background-color: rgba(245,	122,	10, 0.9);
+  background-color: rgba(245, 122, 10, 0.9);
 }
 
 .price-sort:active {
   color: white;
-  background-color: rgba(245,	122,	10, 1) !important;
+  background-color: rgba(245, 122, 10, 1) !important;
 }
 
 .price-sort:focus {
   color: white;
-  background-color: rgba(245,	122,	10, 0.9);
+  background-color: rgba(245, 122, 10, 0.9);
 }
