@@ -1,6 +1,17 @@
-<div class="jumbotron mb-0 mt-5 jumbotron-fluid banner">
+<%# <div class="jumbotron mb-0 mt-5 jumbotron-fluid banner">
   <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
-    <h1 class="text-center">The hottest saunas in town!</h1>
-    <%= link_to "View all saunas", saunas_path, :class => "btn btn-primary" %>
+    <div class="info-wrapper">
+      <h1 class="text-center">The hottest saunas in town!</h1>
+      <%= link_to "View all saunas", saunas_path, :class => "btn btn-primary" %>
+    <%# </div>
   </div>
-</div>
+</div> %>
+
+
+
+<section class="hero">
+</section>
+  <div class="hero-inner">
+   <h1>The hottest saunas in town!</h1>
+        <%= link_to "View all saunas", saunas_path, :class => "btn btn-primary" %>
+  </div>

@@ -1,10 +1,75 @@
-.banner {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://images.squarespace-cdn.com/content/v1/5deb6c2d549fd531b262c9f9/1618395640154-U4V1OECJ5I8G1QI6MCAH/Scandinavian%2BSauna%2Bwith%2Bregular%2BAspen.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  height: 70vh;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+.hero {
+    /* Sizing */
+    width: 100vw;
+    height: 100vh;
+
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Text styles */
+    text-align: center;
+
+    /* Background styles */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url("https://images.squarespace-cdn.com/content/v1/5deb6c2d549fd531b262c9f9/1618395640154-U4V1OECJ5I8G1QI6MCAH/Scandinavian%2BSauna%2Bwith%2Bregular%2BAspen.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.hero-inner{
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+  z-index: 2;
+}
+
+#content > div.hero-inner > a{
+  color: hsl(0, 0%, 96%);
+  background-image: linear-gradient(
+  110deg,
+  hsl(240deg, 9%, 87%) 0%,
+  hsl(12deg, 28%, 85%) 0%,
+  hsl(19deg, 52%, 82%) 0%,
+  hsl(21deg, 67%, 79%) 0%,
+  hsl(22deg, 77%, 76%) 1%,
+  hsl(23deg, 84%, 73%) 2%,
+  hsl(24deg, 88%, 69%) 5%,
+  hsl(24deg, 90%, 65%) 10%,
+  hsl(25deg, 91%, 61%) 19%,
+  hsl(26deg, 92%, 57%) 41%,
+  hsl(28deg, 92%, 50%) 100%
+);
+  border: none;
+  border-width: 1px;
+  border-radius: 8px;
+  width: 175px;
+}
+
+#content > div.hero-inner > h1{
+  text-shadow: 1px 1px 1px #bbbbbb;
+  opacity: 0.9;
+  color: hsl(0, 0%, 96%);
+  margin-bottom: 16px;
+}
+
+
+#content > div.hero-inner > a:hover{
+  transform: scale(1.05);
+}
+
+
+.hero:hover {
+	-webkit-filter: blur(0);
+  filter: blur(0);
 }
