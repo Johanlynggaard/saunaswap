@@ -1,37 +1,37 @@
-<div class="container mt-3">
-
-  <% flash.each do |type, msg| %>
-    <div class="flash">
-      <%= msg %>
-    </div>
-  <% end %>
-
-  <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<% flash.each do |type, msg| %>
+  <div class="flash">
+    <%= msg %>
   </div>
-
-    <div class="asc-btn">
-      <button type="button" class="btn btn-primary btn-lg" id="ascending">Asc. price</button>
-      <button type="button" class="btn btn-primary btn-lg" id="descending">Desc. price</button>
+<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="row asc-btn">
+      <button type="button" class="price-sort btn btn-primary btn-lg col-6" id="ascending">Asc. price</button>
+      <button type="button" class="price-sort btn btn-primary btn-lg col-6" id="descending">Desc. price</button>
     </div>
-
-  <div class="cards">
-    <% @saunas.each do |sauna| %>
-      <% if policy(sauna).index? %>
-      <div class="card-trip" data-price="<%= sauna.price %>">
-        <%= link_to '', sauna_path(sauna), class: 'card-link'  %>
-        <img src='<%= sauna.photos.attached? ? cl_image_path(sauna.photos[0].key) : asset_path(sauna.image_url) %>'/>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= link_to sauna.title, sauna_path(sauna), :style => "text-decoration: none; color: inherit;" %></h2>
-              <p><%= sauna.description %></p>
+    <div class="cards container">
+      <% @saunas.each do |sauna| %>
+        <% if policy(sauna).index? %>
+        <div class="card-trip" data-price="<%= sauna.price %>">
+          <%= link_to '', sauna_path(sauna), class: 'card-link'  %>
+          <img src='<%= sauna.photos.attached? ? cl_image_path(sauna.photos[0].key) : asset_path("https://www.news-medical.net/images/Article_Images/ImageForArticle_21991_16425151489049237.jpg") %>'/>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= link_to sauna.title, sauna_path(sauna), :style => "text-decoration: none; color: inherit;" %></h2>
+                <p><%= sauna.description %></p>
+              </div>
+              <h2 class="card-trip-pricing"> <%= sauna.price %> DOGE</h2>
             </div>
-            <h2 class="card-trip-pricing"> <%= sauna.price %> DOGE</h2>
-          </div>
-      </div>
+        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div id="map"
+      style="width: 100%; height: 85vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
