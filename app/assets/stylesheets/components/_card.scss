@@ -27,6 +27,7 @@
   transition: .2s;
   height: 200px;
   border-radius: 8px;
+  contain: content;
 }
 
 .card-trip > img {
@@ -68,6 +69,16 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-trip .card-trip-pricing {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  background-color: $orange;
+  border-radius: 8px;
+  padding: 8px;
+  color: white;
 }
 
 // To stretch the link on top of the card div
@@ -122,6 +133,16 @@
 }
 
 .price-sort:hover {
+  color: white;
+  background-color: rgba(245,	122,	10, 0.9);
+}
+
+.price-sort:active {
+  color: white;
+  background-color: rgba(245,	122,	10, 1) !important;
+}
+
+.price-sort:focus {
   color: white;
   background-color: rgba(245,	122,	10, 0.9);
 }

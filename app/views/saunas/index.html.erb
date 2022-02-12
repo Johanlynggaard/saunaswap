@@ -15,13 +15,14 @@
         <div class="card-trip" data-price="<%= sauna.price %>">
           <%= link_to '', sauna_path(sauna), class: 'card-link'  %>
           <img src='<%= sauna.photos.attached? ? cl_image_path(sauna.photos[0].key) : asset_path("https://www.news-medical.net/images/Article_Images/ImageForArticle_21991_16425151489049237.jpg") %>'/>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= link_to sauna.title, sauna_path(sauna), :style => "text-decoration: none; color: inherit;" %></h2>
-                <p><%= sauna.description %></p>
-              </div>
-              <h2 class="card-trip-pricing"> <%= sauna.price %> DOGE</h2>
+          <h2 class="card-trip-pricing"> <%= sauna.price %> DOGE</h2>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= link_to sauna.title, sauna_path(sauna), :style => "text-decoration: none; color: inherit;" %></h2>
+              <p><strong><%= sauna.reviews.average(:rating) %></strong><%= icon("fas", "star", class: "ml-1") %> <%= pluralize(sauna.reviews.count, 'review') %> </p>
+              <p><%= sauna.description %></p>
             </div>
+          </div>
         </div>
         <% end %>
       <% end %>
