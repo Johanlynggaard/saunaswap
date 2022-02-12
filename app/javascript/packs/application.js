@@ -37,11 +37,11 @@ import { asc } from '../components/sortable';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  asc();
-  desc();
+  initMapbox();
   initUpdateNavbarOnScroll();
   initFlatpickr();
-  initMapbox();
+  asc();
+  desc();
 });
 
 //= require jquery3

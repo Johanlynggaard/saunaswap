@@ -17,6 +17,14 @@
   transform: scale(1.05);
 }
 
+#review-tile {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
 .card-trip {
   margin-top: 8px;
   display: flex;
