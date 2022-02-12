@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container px-0" id="show-container">
 
   <%# breadcrumb  %>
   <nav aria-label="breadcrumb">
@@ -8,7 +8,7 @@
     </ol>
   </nav>
 
-  <h1 class="text-center"><%= @sauna.title %></h1>
+  <h1 class="text-left"><%= @sauna.title %></h1>
 
   <%# Carrousel code  %>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -22,7 +22,7 @@
       <%# Code to loop over user saved photos %>
       <% @sauna.photos.each_with_index do |photo, i| %>
         <div class="carousel-item text-center <%= 'active' if i == 0 %>">
-          <%= cl_image_tag photo.key, class: 'img-fluid', crop: :fill, style:"height:500px" %>
+          <%= cl_image_tag photo.key, class:"d-block w-100", crop: :fill, style: "height:600px; object-fit:cover" %>
         </div>
       <% end %>
 
@@ -40,19 +40,28 @@
   <div class="row mt-5">
     <div class="col-12 col-md-8">
 
-        <h3 class="text-center">This Sauna is in <%= @sauna.address %></h3>
-        <p class="text-center"><%= @sauna.description %></p>
-
+        <%# <h3 class="text-left"><%= @sauna.address</h3> %>
+        <%# <p class="text-left"><%= @sauna.description</p>  %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item shadow-sm p-3" ><h4 class="mb-0"><strong><%= "#{@sauna.title} - #{@sauna.address}" %><h4></strong></li>
+          <li class="list-group-item shadow-sm p-3"><%= "#{@sauna.description}" %></li>
+          <li class="list-group-item shadow-sm p-3"><span><%= icon("fas", "fire", class: "mr-3") %></span><%= "This is a #{@sauna.sauna_type}-style sauna" %></li>
+          <li class="list-group-item shadow-sm p-3"><%= icon("fas", "user", class: "mr-3") %><%= "This sauna has room for #{@sauna.capacity}" %></li>
+          <li class="list-group-item shadow-sm p-3"><%= icon("fas", "thumbtack", class: "mr-3") %><%= "This sauna is located in #{@sauna.address}" %></li>
+        </ul>
     </div>
+
     <div class="col-md-4 mx-auto">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><strong>From <%= @sauna.price %> DOGE</strong> / person</h5>
-          <p class="card-text"><strong>Capacity: </strong><%= @sauna.capacity %> <%= @sauna.capacity == 1 ? "person" : "people" %></p>
+      <div class="card rounded shadow-sm p-3 mb-5">
+        <div class="card-body rounded">
+          <h5 class="card-title"><strong><%= @sauna.price %> DOGE</strong> / day</h5>
+          <span class="card-text mb-3"><strong>Rating: <%= @sauna.reviews.average(:rating) %></strong><%= icon("fas", "star", class: "ml-1") %>
+          <%# <p class="card-text"><strong>Capacity: </strong><%= @sauna.capacity <%= @sauna.capacity == 1 ? "person" : "people"</p> %>
+
           <%# <div class="text-center"> %>
             <%# <%= link_to "Book Now", new_sauna_booking_path(@sauna), class: "btn btn-primary" %>
           <%# </div> %>
-          <h5 class="card-title">Book now!</h5>
+          <h5 class="card-title mt-3"><strong>Book now!</strong></h5>
           <%= render "bookings/bookingForm" %>
         </div>
       </div>
@@ -60,21 +69,34 @@
   </div>
 
   <%# review in next row div %>
-    <h4 class="col-12">Reviews</h4>
-    <hr>
+  <h4 class="col-12">What others are saying</h4>
+  <hr>
   <div class="cards">
     <% @sauna.reviews.each do |review| %>
-      <div class="card" >
+      <div class="card rounded shadow-sm p-3 mb-3">
         <div class="card-body">
-          <h5 class="card-title"><% review.rating.to_i.times do  %><span>⭐</span><% end %></h5>
+          <h5 class="card-title"><% review.rating.to_i.times do  %><span><%= icon("fas", "star", id: "rating-stars") %></span><% end %></h5>
           <p class="card-text"><%= review.content %></p>
         </div>
       </div>
     <% end %>
   </div>
 
+  <h4 class="col-12">Where you will sweat</h4>
+  <hr>
+  <div class="rounded mt-3">
+    <div id="map"
+      style="width: 100%; height: 400px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
   <% if current_user && current_user.id == @sauna.user_id %>
-    <%= link_to 'Edit listing', edit_sauna_path %>
-    <%= link_to 'Delete listing', sauna_path(@sauna), method: :delete, :class => "delete"%>
+    <div class="mt-3">
+    <%# <p>This is your Sauna</p> %>
+    <%= link_to 'Edit listing', edit_sauna_path, class: "text-warning" %>
+    <%= link_to 'Delete listing', sauna_path(@sauna), method: :delete, class: "ml-3 text-danger"%>
+    </div>
   <% end %>
 </div>

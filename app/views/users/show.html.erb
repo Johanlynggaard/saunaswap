@@ -33,7 +33,7 @@
                         <% sauna.bookings.each do |booking| %>
                           <p>Booked from <%= booking.start_date %> until <%= booking.end_date %> </p>
                             <% if booking.status == "accepted" %>
-                              <p> Booking has been accepted </p>
+                              <p> Booking accepted </p>
                             <% elsif booking.status == "rejected" %>
                               <p> You have rejected this booking </p>
                             <% else booking.status != "accepted"%>
