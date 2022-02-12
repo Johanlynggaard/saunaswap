@@ -8,6 +8,7 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
 
 .hero {
     /* Sizing */
@@ -48,19 +49,19 @@
 #content > div.hero-inner > a{
   color: hsl(0, 0%, 96%);
   background-image: linear-gradient(
-  110deg,
-  hsl(240deg, 9%, 87%) 0%,
-  hsl(12deg, 28%, 85%) 0%,
-  hsl(19deg, 52%, 82%) 0%,
-  hsl(21deg, 67%, 79%) 0%,
-  hsl(22deg, 77%, 76%) 1%,
-  hsl(23deg, 84%, 73%) 2%,
-  hsl(24deg, 88%, 69%) 5%,
-  hsl(24deg, 90%, 65%) 10%,
-  hsl(25deg, 91%, 61%) 19%,
-  hsl(26deg, 92%, 57%) 41%,
-  hsl(28deg, 92%, 50%) 100%
-);
+    110deg,
+    hsl(240deg, 9%, 87%) 0%,
+    hsl(12deg, 28%, 85%) 0%,
+    hsl(19deg, 52%, 82%) 0%,
+    hsl(21deg, 67%, 79%) 0%,
+    hsl(22deg, 77%, 76%) 1%,
+    hsl(23deg, 84%, 73%) 2%,
+    hsl(24deg, 88%, 69%) 5%,
+    hsl(24deg, 90%, 65%) 10%,
+    hsl(25deg, 91%, 61%) 19%,
+    hsl(26deg, 92%, 57%) 41%,
+    hsl(28deg, 92%, 50%) 100%
+  );
   border: none;
   border-width: 1px;
   border-radius: 8px;
@@ -83,5 +84,4 @@
 .hero:hover {
 	-webkit-filter: blur(0);
   filter: blur(0);
-
 }
