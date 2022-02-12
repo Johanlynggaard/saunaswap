@@ -1,0 +1,9 @@
+
+
+<p class="p-0 m-0"><strong><%= sauna.reviews.average(:rating) %></strong><%= icon("fas", "star", class: "ml-1") %> <%= pluralize(sauna.reviews.count, 'review') %> </p>
+<div class="card-trip" data-price="<%= sauna.price %>">
+  <%= link_to '', sauna_path(sauna), class: 'card-link'  %>
+  <img id="map-pin-img" src='<%= sauna.photos.attached? ? cl_image_path(sauna.photos[0].key) : asset_path("https://www.news-medical.net/images/Article_Images/ImageForArticle_21991_16425151489049237.jpg") %>'/>
+  <h2 class="card-trip-pricing"> <%= sauna.price %> DOGE</h2>
+
+</div>
