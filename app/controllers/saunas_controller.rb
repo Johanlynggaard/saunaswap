@@ -26,6 +26,14 @@ class SaunasController < ApplicationController
     # @booking = @sauna.bookings.new
     @booking = Booking.new
     authorize @booking
+
+    @markers = @sauna.geocode.map do |sauna|
+      {
+        lat: @sauna.latitude,
+        lng: @sauna.longitude,
+        info_window: render_to_string(partial: "/saunas/map_pin_box", locals: { sauna: @sauna })
+      }
+    end
   end
 
   def new
