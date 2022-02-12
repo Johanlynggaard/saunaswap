@@ -3,10 +3,10 @@
 }
 
 .accepted{
-  color: hsl(144deg, 83%, 55%);
+  color: $green;
 }
 
 .not-accepted{
-  color: hsl(17deg, 97%, 46%);
+  color: $red;
   opacity: 0.9;
 }

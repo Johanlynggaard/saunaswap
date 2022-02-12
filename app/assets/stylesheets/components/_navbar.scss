@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $white;
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
@@ -30,5 +30,5 @@
 .dropdown-toggle {
   border-color: $orange;
   background-color: $orange;
-  color: white;
+  color: $white;
 }

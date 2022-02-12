@@ -5,7 +5,7 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/coorsa/ckzhadmw200b314vs8cjtcgpg'
   });
 };
 
@@ -13,9 +13,17 @@ const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
 
-    new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup) // add this
+    const element = document.createElement('div');
+    element.className = 'marker';
+    element.style.backgroundImage = `url('${marker.image_url}')`;
+    element.style.backgroundSize = 'contain';
+    element.style.width = '40px';
+    element.style.height = '40px';
+    console.log(marker.image_url)
+    // Pass the element as an argument to the new marker
+    new mapboxgl.Marker(element)
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(popup)
       .addTo(map);
   });
 };
