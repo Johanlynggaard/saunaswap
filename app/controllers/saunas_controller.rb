@@ -18,7 +18,7 @@ class SaunasController < ApplicationController
         lat: sauna.latitude,
         lng: sauna.longitude,
         info_window: render_to_string(partial: "/saunas/map_pin_box", locals: { sauna: sauna }),
-        image_url: helpers.asset_path("marker-48")
+        image_url: helpers.asset_path("marker")
       }
     end
   end
@@ -32,7 +32,8 @@ class SaunasController < ApplicationController
       {
         lat: @sauna.latitude,
         lng: @sauna.longitude,
-        info_window: render_to_string(partial: "/saunas/map_pin_box", locals: { sauna: @sauna })
+        info_window: render_to_string(partial: "/saunas/map_pin_box", locals: { sauna: @sauna }),
+        image_url: helpers.asset_path("marker")
       }
     end
   end
